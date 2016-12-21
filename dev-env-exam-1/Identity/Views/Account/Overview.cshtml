@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Identity.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Overview";
+}
+
+<h2>Overview</h2>
+
+<ul class="nav navbar-nav navbar-left">
+    <li>
+        @Html.ActionLink("Profession overview", "AdminProfessionOverview", "Account")
+    </li>
+    <li>
+        @Html.ActionLink("Add profession", "AddProfession", "Account")
+    </li>
+    <li>
+        @Html.ActionLink("Add employee", "Register", "Account", routeValues: null, htmlAttributes: new { title = "Add Employee" })
+    </li>
+    <li>
+        @Html.ActionLink("Create New", "Create")
+    </li>
+    <li>
+        @Html.ActionLink("Create New", "Create")
+    </li>   
+</ul>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+    </tr>
+}
+
+</table>

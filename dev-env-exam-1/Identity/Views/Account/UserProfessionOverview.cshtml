@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Identity.Models.Profession>
+
+@{
+    ViewBag.Title = "Professions overview";
+}
+
+<h2>Professions overview</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfessionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfessionDescription)
+        </th>
+        <th>
+           No of profissiont users
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfessionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfessionDescription)
+        </td>
+        <td>
+            @item.UserProfession.Count
+            @foreach (var user in item.UserProfession)
+            {
+                @user.User.FirstName
+            }
+        </td>
+    </tr>
+}
+
+</table>
